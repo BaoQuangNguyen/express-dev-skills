@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Sets</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+  <a href="/">Home</a>
+  <h1>These are the Languages I've learned thus far!</h1>
+  <h3> Todays Date: <%= time %></h3>
+  <ul>
+    <% skills.forEach(function(s) { %>
+      <li>
+        <form 
+          action="/skills/<%= s.id %>?_method=DELETE"
+          method="POST"
+          class="delete-form"
+        >
+          <button type="submit">X</button>
+        </form>
+        <a href="/skills/<%= s.id %>"><%= s.language %></a>
+      </li>
+    <% }); %>
+  </ul>
+  <a href="/skills/new">Add Skill</a>
+</body>
+</html>
